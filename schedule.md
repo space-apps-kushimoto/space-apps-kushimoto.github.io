@@ -7,13 +7,6 @@ permalink: /schedule/
 ## 審査員
 現在交渉中です。決まり次第、情報を更新します。
 <div class="judges">
-<!-- {% for judge in site.judges %}
-  <div class="judge">
-    <div class="judge-image"><img src="{{ site.url }}/img/judges/{{ judge.img }}" alt="{{ judge.name }}"></div>
-    <h2>{{ judge.name }}</h2>
-    <div>{{ judge.position }}</div>
-  </div>
-{% endfor %} -->
 </div>
 
 <p style="text-align: right;">(五十音順)</p>
