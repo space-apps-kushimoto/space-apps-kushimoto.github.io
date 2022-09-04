@@ -1,0 +1,56 @@
+<!-- footer Start -->
+<footer>
+  <div class="attend">
+      <p><a href="https://spaceappsjapan.connpass.com/event/148438/" class="btn btn-danger btn-lg btn-block">Space Apps Challenge Kushimoto 2019 への参加申し込みは終了しました</a></p>
+      <p>参加費用及び潮岬青少年の家での宿泊費は無料です。（食費のみ実費。）</p>
+  </div>
+
+  <div class="sponsors">
+    <h2>プラチナ</h2>
+
+    <p class="platinum"><a href="https://yasslab.jp/"><img src="{{ site.url }}/img/sponsor/yasslab.png" /></a></p>
+
+    <h2>ゴールドスポンサー</h2>
+
+    <div class="row">
+      {% for s in site.gold %}
+        <div class="col-md-3 col-sm-4 vcenter"><a href="{{s.url}}"><img src="{{ site.url }}/img/sponsor/{{ s.image }}" alt="{{ s.name }}"></a></div>
+      {% endfor %}
+    </div>
+
+    <h2>シルバースポンサー</h2>
+
+    <div class="row">
+      {% for s in site.silver %}
+        <div class="col-md-2 col-sm-6 vcenter"><a href="{{s.url}}"><img src="{{ site.url }}/img/sponsor/{{ s.image }}" alt="{{ s.name }}"></a></div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="whoweare">
+      <h3>主催</h3>
+      <p style="text-align: center;">NASA / Space Apps Challenge Kushimoto 実行委員会</p>
+      <h3>後援</h3>
+      <p style="text-align: center;">和歌山県 / 串本町</p>
+    </div>
+
+    <div class="row" style="margin-top: 3em;">
+      <div class="col-md-12">
+        <div class="footer-manu">
+          <ul>
+            <li><a href="{{ site.baseurl }}/">ホーム</a></li>
+            <li><a href="{{ site.baseurl }}/posts">お知らせ</a></li>
+            <li><a href="{{ site.baseurl }}/schedule">開催概要</a></li>
+            <li><a href="{{ site.baseurl }}/access">アクセス</a></li>
+            <li><a href="{{ site.baseurl }}/sponsor">スポンサー</a></li>
+            <li><a href="{{ site.baseurl }}/code-of-conduct">行動規範</a></li>
+<!--            <li><a href="{{ site.baseurl }}/contact">お問い合わせ</a></li>-->
+          </ul>
+        </div>
+        <p>Copyright &copy; Space Apps Challenge Kushimoto 実行委員会</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="https://api.geolonia.com/v1/embed?geolonia-api-key=SPACEAPPSKUSHIMOTO"></script>

@@ -1,0 +1,78 @@
+
+exclude:
+  - "/vendor/"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "README.md"
+  - "LICENSE.md"
+  - "*.gemspec"
+
+keep_files:
+  - "CNAME"
+  - ".git"
+  - ".gitignore"
+
+
+# Site settings
+title: Space Apps Challenge Kushimoto
+subtitle: "NASA 主催の世界同時ハッカソン"
+url: "https://space-apps-kushimoto.github.io" # the base hostname & protocol for your site
+# baseurl: "/the/subpath/of/your/site" # Set this value to "" if you want your site to be root
+baseurl: ""
+cover: "/assets/cover.png"
+logo: "/assets/logo.png"
+
+# Build settings
+markdown: kramdown
+
+# Google analytics
+# ga_tracking_id: "UA-XXXX-1"
+
+# Category descriptions (for archive pages)
+descriptions:
+  - cat: スタッフブログ
+    desc: "Space Apps Challenge Kushimoto の実行委員によるスタッフブログです。"
+
+  - cat: お知らせ
+    desc: "Space Apps Challenge Kushimoto の実行委員からのお知らせ"
+
+judges:
+  - name: 古崎 晃司様
+    img: kozaki.jpg
+    position: 大阪電気通信大学 情報通信工学部 情報工学科 教授
+  - name: 寺田 弘慈様
+    img: terada.jpg
+    position: 国立研究開発法人宇宙航空研究開発機構 (JAXA) 第一宇宙技術部門衛星システム開発統括
+  - name: 西村 竜一様
+    img: nishimura.jpg
+    position: 国立大学法人 和歌山大学 データ・インテリジェンス教育研究部門 （システム工学部）講師
+  - name: 牟田 梓様
+    img: muta.jpg
+    position: さくらインターネット株式会社 xData ALLIANCE Project プロデューサー
+
+gold:
+  - image: astrobears.png
+    url: https://www.astrobears.earth
+    name: ココアップズ株式会社 アストロベアーズ事業部
+  - image: VTL.png
+    url: http://vtl.co.jp
+    name: 株式会社ビジュアル・テクノロジー研究所
+  - image: geolonia.png
+    url: https://geolonia.com/
+    name: 株式会社 Geolonia
+
+silver:
+  - image: DCORE_LOGO.png
+    name: Dコアスタジオ
+  - image: icube.gif
+    url: https://www.icube.ph/
+    name: 株式会社アイキューブ
+  # - image: resortohshima.png
+  #   url: https://resortohshima.com/
+  #   name: 株式会社リゾート大島
+  - image: SJS.png
+    url: https://www.seiwajoho.co.jp/
+    name: 株式会社正和情報サービス
+  - image: dynalinks.png
+    url: https://dyna-links.com/
+    name: ダイナリンクス合同会社
