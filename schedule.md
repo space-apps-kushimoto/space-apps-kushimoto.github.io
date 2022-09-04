@@ -5,7 +5,7 @@ permalink: /schedule/
 ---
 
 ## 審査員
-調整中
+現在交渉中です。決まり次第、情報を更新します。
 <div class="judges">
 <!-- {% for judge in site.judges %}
   <div class="judge">
