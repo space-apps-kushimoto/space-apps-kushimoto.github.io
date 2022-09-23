@@ -126,6 +126,11 @@ footer .attend a
   max-width: 95%;
 }
 
+.silver-sponsors img {
+  max-width: 45%!important;
+  margin: 10px;
+}
+
 .vcenter
 {
   display: inline-block;
