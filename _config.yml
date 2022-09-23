@@ -51,28 +51,14 @@ judges:
     position: さくらインターネット株式会社 xData ALLIANCE Project プロデューサー
 
 gold:
-  - image: astrobears.png
-    url: https://www.astrobears.earth
-    name: ココアップズ株式会社 アストロベアーズ事業部
   - image: VTL.png
     url: http://vtl.co.jp
     name: 株式会社ビジュアル・テクノロジー研究所
-  - image: geolonia.png
-    url: https://geolonia.com/
-    name: 株式会社 Geolonia
 
 silver:
-  - image: DCORE_LOGO.png
-    name: Dコアスタジオ
-  - image: icube.gif
-    url: https://www.icube.ph/
-    name: 株式会社アイキューブ
-  # - image: resortohshima.png
-  #   url: https://resortohshima.com/
-  #   name: 株式会社リゾート大島
-  - image: SJS.png
-    url: https://www.seiwajoho.co.jp/
-    name: 株式会社正和情報サービス
-  - image: dynalinks.png
-    url: https://dyna-links.com/
-    name: ダイナリンクス合同会社
+  - image: embedai.png
+    url: https://embed-ai-labo.business.site/
+    name: 株式会社組込AI研究所
+  - image: nobuhirokaji.png
+    url: ""
+    name: 鍜治 暢宏様
