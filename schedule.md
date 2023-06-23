@@ -17,7 +17,7 @@ permalink: /schedule/
 
   <p></p>
   <p></p>
-<h2>最新の情報については、<!--a href="https://spaceappsjapan.connpass.com/event/259498/"-->connpass のイベント申し込みページ</a>をご覧ください。</h2>
+<h2>最新の情報については、<!--a href="https://spaceappsjapan.connpass.com/event/259498/"-->connpass のイベント申し込みページをご覧ください。</h2>
 
 
 </div>
