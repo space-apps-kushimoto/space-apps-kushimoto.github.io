@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 2023年の審査員が決まりました
-date: 2023-06-24 04:22:00
+date: 2023-06-24 00:00:00
 author: Tarosay
 ---
 
