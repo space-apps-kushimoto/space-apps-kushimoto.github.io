@@ -51,9 +51,12 @@ judges:
     position: さくらインターネット株式会社 xData ALLIANCE Project プロデューサー
 
 gold:
-  #- image: VTL.png
-  #  url: http://vtl.co.jp
-  #  name: 株式会社ビジュアル・テクノロジー研究所
+  - image: VTL.png
+    url: http://vtl.co.jp
+    name: 株式会社 ビジュアル・テクノロジー研究所
+  - image: embedai.png
+    url: https://embed-ai-labo.business.site
+    name: 株式会社 組込AI研究所
 
 silver:
   #- image: embedai.png
