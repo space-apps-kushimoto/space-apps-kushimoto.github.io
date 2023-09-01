@@ -141,6 +141,9 @@ footer .attend a
 footer .btn1
 {
   white-space: normal;
+  color: #fff;
+  background-color: #a0522d;
+  border-color: #d43f3a;
 }
 
 footer .btn2
