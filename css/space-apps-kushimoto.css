@@ -149,11 +149,17 @@ footer .btn1
 footer .btn2
 {
   white-space: normal;
+  color: #fff;
+  background-color: #4169e1;
+  border-color: #d43f3a;
 }
 
 footer .btn3
 {
   white-space: normal;
+  color: #dc143c;
+  background-color: #7fffd4;
+  border-color: #d43f3a;
 }
 
 footer .whoweare p
