@@ -100,29 +100,43 @@ img
   margin: 10px;
 }
 
-footer .attend
-{
-  margin: 0 auto 40px auto;
-  width: 1060px;
-  max-width: 90%;
-  color: #555555;
-}
-
-footer .attend a
-{
-  padding: 24px;
-  font-size: 24px;
-}
-
 footer .attend1
 {
   margin: 0 auto 40px auto;
   width: 1060px;
   max-width: 90%;
-  color: #555555;
+  color: #a0522d;
 }
 
 footer .attend1 a
+{
+  padding: 24px;
+  font-size: 24px;
+}
+
+footer .attend2
+{
+  margin: 0 auto 40px auto;
+  width: 1060px;
+  max-width: 90%;
+  color: #a0522d;
+}
+
+footer .attend2 a
+{
+  padding: 24px;
+  font-size: 24px;
+}
+
+footer .attend3
+{
+  margin: 0 auto 40px auto;
+  width: 1060px;
+  max-width: 90%;
+  color: #ce2206;
+}
+
+footer .attend3 a
 {
   padding: 24px;
   font-size: 24px;
