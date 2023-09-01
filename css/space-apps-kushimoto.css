@@ -114,6 +114,20 @@ footer .attend a
   font-size: 24px;
 }
 
+footer .attend1
+{
+  margin: 0 auto 40px auto;
+  width: 1060px;
+  max-width: 90%;
+  color: #555555;
+}
+
+footer .attend1 a
+{
+  padding: 24px;
+  font-size: 24px;
+}
+
 .sponsors h2
 {
   font-weight: bolder;
