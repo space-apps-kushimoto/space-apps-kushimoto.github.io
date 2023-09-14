@@ -96,8 +96,8 @@ img
 }
 
 .silver-sponsors img {
-  max-width: 150px !important;
-  margin: 10px;
+  width: 400px;
+  max-width: 95%;
 }
 
 footer .attend
