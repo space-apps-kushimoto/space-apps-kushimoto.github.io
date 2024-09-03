@@ -154,6 +154,12 @@ footer .btn2
   border-color: #d43f3a;
 }
 
+footer .btn2 span {
+  display: block; /* 各テキストをブロック表示にする */
+  text-align: center; /* テキストを中央揃えにする */
+  margin: 5px 0; /* 上下の余白を調整 */
+}
+
 footer .btn3
 {
   white-space: normal;
