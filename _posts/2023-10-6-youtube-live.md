@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ライブ配信のお知らせ
+title: 2023年のライブ配信
 date: 2023-10-06 00:00:00
 author: Tarosay
 ---
