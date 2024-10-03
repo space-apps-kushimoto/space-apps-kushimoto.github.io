@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 2024年の審査員が決まりました
-date: 2024-10-02 00:00:00
+date: 2024-10-04 00:00:00
 author: Tarosay
 ---
 
