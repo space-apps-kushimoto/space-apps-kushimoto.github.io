@@ -57,6 +57,9 @@ gold:
   - image: embedai.png
     url: https://embed-ai.com
     name: 株式会社 組込AI研究所
+  - image: logoKEGCareerAcademy.png
+    url: https://k-e-g.co.jp/
+    name: 株式会社 KEGキャリアアカデミー
 
 silver:
   - image: WomSystemDesign.png
