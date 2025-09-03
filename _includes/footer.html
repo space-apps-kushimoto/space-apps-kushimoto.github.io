@@ -44,25 +44,24 @@
 
   <div class="sponsors">
 <h2>プラチナスポンサー</h2>
-<div class="row">
-  <!-- 常に2カラムにするため、BS3向け col-xs-6 と BS4/5向け col-6 を併記 -->
-  <div class="col-6 col-xs-6 col-sm-6 col-md-6 vcenter text-center">
+<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+  <!-- 左側（50%幅・中央寄せ） -->
+  <div style="flex:0 0 50%; text-align:center;">
     <a href="https://www.saika.or.jp/">
       <img
-        class="img-fluid img-responsive"
         src="{{ site.url }}/img/sponsor/logoSaika.png"
         alt="公益財団法人 和歌山県文化振興財団"
-        style="width:300px; height:auto;">
+        style="width:300px; height:auto; max-width:100%; display:inline-block;">
     </a>
   </div>
 
-  <div class="col-6 col-xs-6 col-sm-6 col-md-6 vcenter text-center">
+  <!-- 右側（50%幅・中央寄せ） -->
+  <div style="flex:0 0 50%; text-align:center;">
     <a href="https://www.tsuneishi.co.jp/yura/">
       <img
-        class="img-fluid img-responsive"
         src="{{ site.url }}/img/sponsor/logoTsuneishiYura.png"
         alt="ツネイシユラ"
-        style="width:300px; height:auto;">
+        style="width:300px; height:auto; max-width:100%; display:inline-block;">
     </a>
   </div>
 </div>
