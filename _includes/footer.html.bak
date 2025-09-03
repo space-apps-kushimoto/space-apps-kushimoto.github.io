@@ -44,6 +44,7 @@
     <h2>プラチナスポンサー</h2>
 
     <p class="platinum"><a href="https://www.saika.or.jp/"><img src="{{ site.url }}/img/sponsor/logoSaika.png" /></a></p>
+    <p class="platinum"><a href="https://www.tsuneishi.co.jp/yura/"><img src="{{ site.url }}/img/sponsor/logoTokoishiYurag.png" /></a></p>
     <p class="platinum"></p>
 
     <h2>ゴールドスポンサー</h2>
