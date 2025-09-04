@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 2025年の開催版にリニューアルのお知らせ
-date: 2025-09-04 12:00:00
+date: 2025-09-04 00:00:00
 author: Tarosay
 ---
 
