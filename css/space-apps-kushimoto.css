@@ -248,7 +248,7 @@ footer .whoweare p
 .silver-item a { display:block; line-height:0; }
 
 .silver-stack img {
-  height: 80px;               /* 高さ揃え（ゴールドと同値） */
+  height: 60px;               /* 高さ揃え（ゴールドと同値） */
   width: auto;
   max-width: 100%;
   object-fit: contain;
