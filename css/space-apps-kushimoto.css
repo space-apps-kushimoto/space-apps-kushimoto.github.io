@@ -222,7 +222,7 @@ footer .whoweare p
 }
 
 .gold-stack img {
-  height: 50px;            /* ← 高さを統一（必要に応じ 120/130/150 に） */
+  height: 100px;            /* ← 高さを統一（必要に応じ 120/130/150 に） */
   width: auto;
   max-width: 100%;
   object-fit: contain;       /* 切れ防止＆縦横比保持 */
@@ -248,7 +248,7 @@ footer .whoweare p
 .silver-item a { display:block; line-height:0; }
 
 .silver-stack img {
-  height: 110px;               /* 高さ揃え（ゴールドと同値） */
+  height: 80px;               /* 高さ揃え（ゴールドと同値） */
   width: auto;
   max-width: 100%;
   object-fit: contain;
