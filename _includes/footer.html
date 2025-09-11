@@ -45,24 +45,25 @@
 
   <div class="sponsors">
 <h2>プラチナスポンサー</h2>
-<div style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:40px;">
-  <!-- 上段 -->
+<!-- ここに class="platinum-stack" を追加 -->
+<div class="platinum-stack" style="display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:40px;">
+  <!-- 左側 -->
   <div>
     <a href="https://www.saika.or.jp/">
       <img
         src="{{ site.url }}/img/sponsor/logoSaika.png"
         alt="公益財団法人 和歌山県文化振興財団"
-        style="width:auto; height:150px; max-width:100%; display:block;">
+        style="width:350px; height:auto; max-width:100%; display:inline-block;">
     </a>
   </div>
 
-  <!-- 下段 -->
+  <!-- 右側 -->
   <div>
     <a href="https://www.tsuneishi.co.jp/yura/">
       <img
         src="{{ site.url }}/img/sponsor/logoTsuneishiYura.png"
         alt="ツネイシユラ"
-        style="width:auto; height:150px; max-width:100%; display:block;">
+        style="width:350px; height:auto; max-width:100%; display:inline-block;">
     </a>
   </div>
 </div>
@@ -71,11 +72,15 @@
           
     <h2>ゴールドスポンサー</h2>
 
-    <div class="row">
-      {% for s in site.gold %}
-        <div class="col-md-3 col-sm-4 vcenter"><a href="{{s.url}}"><img src="{{ site.url }}/img/sponsor/{{ s.image }}" alt="{{ s.name }}"></a></div>
-      {% endfor %}
+<div class="row gold-sponsor">
+  {% for s in site.gold %}
+    <div class="col-md-3 col-sm-4 vcenter">
+      <a href="{{s.url}}">
+        <img src="{{ site.url }}/img/sponsor/{{ s.image }}" alt="{{ s.name }}">
+      </a>
     </div>
+  {% endfor %}
+</div>
 
     <h2>シルバースポンサー</h2>
     <!--
