@@ -235,4 +235,29 @@ footer .whoweare p
   .gold-stack img { height: 90px; }
 }
 
+/* 旧ルールの影響を消す（任意：残す場合の上書き） */
+.silver-sponsors img { width: auto !important; }
+
+/* シルバー：縦並び＋高さ揃え（ゴールドと同じ110pxに統一） */
+.silver-stack {
+  display: flex;
+  flex-direction: column;      /* 縦積み */
+  align-items: center;
+  row-gap: 20px;               /* 間隔 */
+}
+.silver-item a { display:block; line-height:0; }
+
+.silver-stack img {
+  height: 110px;               /* 高さ揃え（ゴールドと同値） */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* スマホ微調整（任意） */
+@media (max-width: 600px) {
+  .silver-stack img { height: 90px; }
+}
 
