@@ -222,7 +222,7 @@ footer .whoweare p
 }
 
 .gold-stack img {
-  height: 100px;            /* ← 高さを統一（必要に応じ 120/130/150 に） */
+  height: 50px;            /* ← 高さを統一（必要に応じ 120/130/150 に） */
   width: auto;
   max-width: 100%;
   object-fit: contain;       /* 切れ防止＆縦横比保持 */
