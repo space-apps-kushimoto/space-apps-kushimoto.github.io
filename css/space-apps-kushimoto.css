@@ -184,3 +184,55 @@ footer .whoweare p
     padding: 16px;
   }
 }
+
+/* ===== プラチナスポンサー：縦2つ＆高さ揃え ===== */
+/* 対象HTMLの外側ラッパーに .platinum-stack を付けてください（下にHTML例あり） */
+.platinum-stack {
+  display: flex !important;          /* インラインstyleのdisplay:flexを活かしつつ */
+  flex-direction: column !important; /* 横→縦に切替 */
+  justify-content: center;
+  align-items: center;
+  row-gap: 40px;                      /* 画像同士の間隔 */
+}
+
+/* 画像の高さを統一（横幅は自動・縦横比は保持） */
+.platinum-stack img {
+  height: 150px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* スマホでの見やすさ微調整 */
+@media screen and (max-width: 600px) {
+  .platinum-stack img {
+    height: 130px !important;
+  }
+}
+
+/* ===== ゴールドスポンサー：縦並び ===== */
+/* HTML側で <div class="row gold-sponsor"> にして使います */
+.sponsors .gold-sponsor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+/* Bootstrapのcol幅を縦並び用に最適化（他の.rowへ影響しないように .gold-sponsor 配下のみ） */
+.sponsors .gold-sponsor .col-md-3,
+.sponsors .gold-sponsor .col-sm-4 {
+  width: 100% !important;
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ゴールド画像は高さ控えめに（必要なら値を調整） */
+.sponsors .gold-sponsor img {
+  max-height: 110px;
+  width: auto;
+  object-fit: contain;
+  display: inline-block;
+}
