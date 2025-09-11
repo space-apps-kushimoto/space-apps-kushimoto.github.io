@@ -208,34 +208,44 @@ footer .whoweare p
   }
 }
 
-/* ===== ゴールドスポンサー：縦並び＋高さ揃え ===== */
+/* ===== ゴールドスポンサー：縦並び＋高さ揃え（修正） ===== */
 .sponsors .gold-sponsor {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 20px; /* 各スポンサー間の余白 */
+  row-gap: 20px;
 }
 
 .sponsors .gold-sponsor .col-md-3,
 .sponsors .gold-sponsor .col-sm-4 {
   width: 100% !important;
-  max-width: 420px; /* 画像ブロックの最大幅 */
+  max-width: 420px;
   margin: 0 auto;
   text-align: center;
 }
 
-/* ゴールド画像も高さを統一 */
-.sponsors .gold-sponsor img {
-  height: 110px; /* 高さを統一（好みに応じて調整） */
-  width: auto;
-  max-width: 100%;
-  object-fit: contain; /* 縦横比保持 */
-  display: inline-block;
+/* a要素の行ボックス余白を消して画像の高さを正確に適用 */
+.sponsors .gold-sponsor .col-md-3 a,
+.sponsors .gold-sponsor .col-sm-4 a {
+  display: block;
+  line-height: 0;
 }
 
+/* ここが肝：必ず同じ高さにするため優先度アップ＋ブロック化 */
+.sponsors .gold-sponsor img {
+  height: 110px !important;   /* ← 高さを絶対に固定 */
+  width: auto !important;      /* 幅は自動（縦横比保持） */
+  max-width: 100% !important;
+  object-fit: contain;          /* ロゴが切れない */
+  display: block;               /* 余白のばらつきを防ぐ */
+  margin: 0 auto;               /* 中央寄せ */
+}
+
+/* スマホ時の微調整（任意） */
 @media screen and (max-width: 600px) {
   .sponsors .gold-sponsor img {
-    height: 90px;
+    height: 90px !important;
   }
 }
+
 
