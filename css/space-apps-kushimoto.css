@@ -208,56 +208,54 @@ footer .whoweare p
   }
 }
 
-/* ===== ゴールドスポンサー：縦並び＋高さを確実に揃える ===== */
-.sponsors .gold-sponsor {
+/* ===== ゴールドスポンサー：縦1列＋高さ完全固定（強度UP版） ===== */
+#page .container .sponsors .gold-sponsor {
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 20px;
 }
 
-/* 1列化用の幅調整（他の .row に影響しないようにスコープ） */
-.sponsors .gold-sponsor .col-md-3,
-.sponsors .gold-sponsor .col-sm-4 {
+/* 1アイテムを同じ高さの「箱」にして中央寄せ */
+#page .container .sponsors .gold-sponsor .col-md-3,
+#page .container .sponsors .gold-sponsor .col-sm-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100% !important;
   max-width: 420px;
   margin: 0 auto;
   text-align: center;
+  min-height: 140px;           /* ここで“見かけの”高さを統一 */
+  padding: 0;                  /* 余白差の影響を排除 */
 }
 
-/* “同じ高さの箱”を作る：画像が小さくても中央に来る */
-.sponsors .gold-sponsor .col-md-3,
-.sponsors .gold-sponsor .col-sm-4 {
-  display: flex;                 /* ← ここで箱にする */
-  align-items: center;           /* 縦中央寄せ */
-  justify-content: center;       /* 横中央寄せ */
-  min-height: 140px;             /* 画像高さ110px + 余白 目安 */
-}
-
-/* aの行ボックス余白を消して誤差をなくす */
-.sponsors .gold-sponsor .col-md-3 a,
-.sponsors .gold-sponsor .col-sm-4 a {
+/* a要素の行ボックス余白を消す（インライン画像のベースラインずれ対策） */
+#page .container .sponsors .gold-sponsor .col-md-3 a,
+#page .container .sponsors .gold-sponsor .col-sm-4 a {
   display: block;
   line-height: 0;
+  padding: 0;
+  margin: 0;
 }
 
-/* 画像の高さを“必ず”固定。幅は自動（縦横比保持） */
-.sponsors .gold-sponsor img {
-  height: 110px !important;      /* ← 好みで130px/150pxに */
+/* 画像の高さを“必ず”固定。幅は自動。優先度を最大限に */
+#page .container .sponsors .gold-sponsor img {
+  height: 110px !important;    /* ← 好みに応じて 120/130/150px に */
   width: auto !important;
   max-width: 100% !important;
-  object-fit: contain;            /* 切れ防止 */
+  object-fit: contain;
   display: block;
   margin: 0 auto;
 }
 
 /* スマホ微調整（任意） */
 @media (max-width: 600px) {
-  .sponsors .gold-sponsor .col-md-3,
-  .sponsors .gold-sponsor .col-sm-4 {
+  #page .container .sponsors .gold-sponsor .col-md-3,
+  #page .container .sponsors .gold-sponsor .col-sm-4 {
     min-height: 120px;
   }
-  .sponsors .gold-sponsor img {
+  #page .container .sponsors .gold-sponsor img {
     height: 90px !important;
   }
 }
