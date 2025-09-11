@@ -68,19 +68,17 @@
   </div>
 </div>
 
-
-          
-    <h2>ゴールドスポンサー</h2>
-
-<div class="row gold-sponsor">
+<h2>ゴールドスポンサー</h2>
+<div class="gold-stack">
   {% for s in site.gold %}
-    <div class="col-md-3 col-sm-4 vcenter">
-      <a href="{{s.url}}">
+    <div class="gold-item">
+      <a href="{{ s.url }}">
         <img src="{{ site.url }}/img/sponsor/{{ s.image }}" alt="{{ s.name }}">
       </a>
     </div>
   {% endfor %}
 </div>
+
 
     <h2>シルバースポンサー</h2>
     <!--
