@@ -208,7 +208,7 @@ footer .whoweare p
   }
 }
 
-/* ===== ゴールドスポンサー：縦並び＋高さ揃え（修正） ===== */
+/* ===== ゴールドスポンサー：縦並び＋高さを確実に揃える ===== */
 .sponsors .gold-sponsor {
   display: flex;
   flex-direction: column;
@@ -216,6 +216,7 @@ footer .whoweare p
   row-gap: 20px;
 }
 
+/* 1列化用の幅調整（他の .row に影響しないようにスコープ） */
 .sponsors .gold-sponsor .col-md-3,
 .sponsors .gold-sponsor .col-sm-4 {
   width: 100% !important;
@@ -224,28 +225,39 @@ footer .whoweare p
   text-align: center;
 }
 
-/* a要素の行ボックス余白を消して画像の高さを正確に適用 */
+/* “同じ高さの箱”を作る：画像が小さくても中央に来る */
+.sponsors .gold-sponsor .col-md-3,
+.sponsors .gold-sponsor .col-sm-4 {
+  display: flex;                 /* ← ここで箱にする */
+  align-items: center;           /* 縦中央寄せ */
+  justify-content: center;       /* 横中央寄せ */
+  min-height: 140px;             /* 画像高さ110px + 余白 目安 */
+}
+
+/* aの行ボックス余白を消して誤差をなくす */
 .sponsors .gold-sponsor .col-md-3 a,
 .sponsors .gold-sponsor .col-sm-4 a {
   display: block;
   line-height: 0;
 }
 
-/* ここが肝：必ず同じ高さにするため優先度アップ＋ブロック化 */
+/* 画像の高さを“必ず”固定。幅は自動（縦横比保持） */
 .sponsors .gold-sponsor img {
-  height: 110px !important;   /* ← 高さを絶対に固定 */
-  width: auto !important;      /* 幅は自動（縦横比保持） */
+  height: 110px !important;      /* ← 好みで130px/150pxに */
+  width: auto !important;
   max-width: 100% !important;
-  object-fit: contain;          /* ロゴが切れない */
-  display: block;               /* 余白のばらつきを防ぐ */
-  margin: 0 auto;               /* 中央寄せ */
+  object-fit: contain;            /* 切れ防止 */
+  display: block;
+  margin: 0 auto;
 }
 
-/* スマホ時の微調整（任意） */
-@media screen and (max-width: 600px) {
+/* スマホ微調整（任意） */
+@media (max-width: 600px) {
+  .sponsors .gold-sponsor .col-md-3,
+  .sponsors .gold-sponsor .col-sm-4 {
+    min-height: 120px;
+  }
   .sponsors .gold-sponsor img {
     height: 90px !important;
   }
 }
-
-
