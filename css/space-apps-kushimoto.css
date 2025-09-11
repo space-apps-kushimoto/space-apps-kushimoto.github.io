@@ -208,39 +208,31 @@ footer .whoweare p
   }
 }
 
-/* ===== ゴールドスポンサーを縦1列に“強制” ===== */
-#page .container .sponsors .gold-sponsor {
-  display: flex !important;
-  flex-direction: column !important;  /* ← 縦積みを強制 */
+/* === ゴールド：プラチナと同じ思想（独立ラッパー）で縦並び＆高さ揃え === */
+.gold-stack {
+  display: flex;
+  flex-direction: column;   /* 縦積み */
   align-items: center;
-  row-gap: 20px;
+  row-gap: 20px;            /* 項目間の間隔 */
 }
 
-/* グリッドの横並び要因を無効化（float/横幅指定を上書き） */
-#page .container .sponsors .gold-sponsor .col-md-3,
-#page .container .sponsors .gold-sponsor .col-sm-4 {
-  float: none !important;             /* ← 横並びの主因を無効化 */
-  display: block !important;
-  width: 100% !important;             /* ← 1カラム幅に固定 */
-  max-width: 420px;
-  margin: 0 auto;
-  text-align: center;
+.gold-item a {
+  display: block;
+  line-height: 0;           /* インライン余白対策 */
 }
 
-/* リンクのベースライン余白を消す（高さ誤差防止） */
-#page .container .sponsors .gold-sponsor .col-md-3 a,
-#page .container .sponsors .gold-sponsor .col-sm-4 a {
-  display: block !important;
-  line-height: 0 !important;
-}
-
-/* 高さを揃える（幅は自動） */
-#page .container .sponsors .gold-sponsor img {
-  height: 110px !important;
-  width: auto !important;
-  max-width: 100% !important;
-  object-fit: contain;
+.gold-stack img {
+  height: 110px;            /* ← 高さを統一（必要に応じ 120/130/150 に） */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;       /* 切れ防止＆縦横比保持 */
   display: block;
   margin: 0 auto;
 }
+
+/* スマホ微調整（任意） */
+@media (max-width: 600px) {
+  .gold-stack img { height: 90px; }
+}
+
 
