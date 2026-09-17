@@ -1,0 +1,46 @@
+---
+// 記事ページ。旧サイトと同じ /YYYY/MM/DD/名前.html に出力する。
+import { render } from 'astro:content';
+import PageLayout from '../../../../layouts/PageLayout.astro';
+import { excerpt, formatDate, getPosts, postParams, type Post } from '../../../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: postParams(post), props: { post } }));
+}
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<PageLayout title={post.data.title} eyebrow="News" description={excerpt(post.body, 120)} prose>
+  <p slot="meta" class="meta">
+    <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+    {post.data.author && <span>{post.data.author}</span>}
+  </p>
+
+  <Content />
+
+  <p class="back"><a href="/posts/">← お知らせ一覧に戻る</a></p>
+</PageLayout>
+
+<style>
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin: 12px 0 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .back {
+    margin-top: 3em;
+    padding-top: 1.5em;
+    border-top: 1px solid var(--line);
+  }
+</style>

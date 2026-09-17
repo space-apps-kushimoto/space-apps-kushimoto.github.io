@@ -1,0 +1,262 @@
+/* ===== デザインの基本値 =====
+   暗順応・明順応の負担を減らすため、サイト全体を暗めの紺で統一する。
+   真っ黒・真っ白は使わず、隣り合う面の明るさの差を小さく保つ。 */
+:root {
+  --red: #e4010b;         /* ロゴの赤（ボタン等） */
+  --red-text: #ff5a60;    /* 暗い背景の上に置く赤い文字 */
+  --blue: #8ea6ff;        /* 暗い背景の上のリンク色 */
+  --ocean: #4cc4d2;       /* 串本の海 */
+
+  --bg: #19213d;          /* ページの基本の背景 */
+  --bg-soft: #1d2645;     /* 交互に使う背景（わずかに明るい） */
+  --bg-deep: #141b33;     /* ヘッダー・フッター（わずかに暗い） */
+  --surface: #252f52;     /* カード */
+  --surface-hover: #2b3660;
+  --plate: #d9dde6;       /* スポンサーロゴの台紙（真っ白にしない） */
+
+  --text: #dde2ec;
+  --text-muted: #a3acc2;
+  --line: rgb(255 255 255 / 10%);
+
+  --radius: 14px;
+  --shadow: 0 1px 2px rgb(0 0 0 / 20%), 0 8px 24px rgb(0 0 0 / 22%);
+  --container: 1120px;
+  --header-h: 64px;
+
+  --font-sans: 'Noto Sans JP', system-ui, -apple-system, 'Segoe UI', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  --font-display: 'Oswald', 'Noto Sans JP', sans-serif;
+  --font-logo: 'Montserrat', 'Oswald', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  color-scheme: dark;
+  background: var(--bg-deep);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--blue);
+  text-underline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.35;
+  margin: 0 0 0.6em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ocean);
+  outline-offset: 2px;
+}
+
+/* ===== レイアウト部品 ===== */
+.container {
+  width: min(100% - 32px, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(56px, 9vw, 104px);
+}
+
+.section--soft {
+  background: var(--bg-soft);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red-text);
+  margin-bottom: 0.5em;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  font-weight: 700;
+}
+
+.lead {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ===== ボタン ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: 48px;
+  padding: 0.7em 1.4em;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.3;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 6px 20px rgb(228 1 11 / 25%);
+}
+
+.btn--primary:hover {
+  background: #c6000a;
+}
+
+.btn--ghost {
+  background: rgb(25 33 61 / 55%);
+  color: var(--text);
+  border: 1px solid rgb(255 255 255 / 30%);
+  backdrop-filter: blur(6px);
+}
+
+.btn--ghost:hover {
+  background: rgb(255 255 255 / 16%);
+}
+
+.btn[aria-disabled='true'] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ===== 本文（Markdown から作られる部分） ===== */
+.prose {
+  max-width: 760px;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose h1,
+.prose h2 {
+  margin: 2.2em 0 0.8em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.45rem;
+}
+
+.prose h3 {
+  margin: 1.8em 0 0.6em;
+  font-size: 1.15rem;
+}
+
+.prose h3::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1em;
+  margin-right: 0.5em;
+  border-radius: 2px;
+  background: var(--red);
+  vertical-align: -0.12em;
+}
+
+.prose h4 {
+  margin: 1.4em 0 0.4em;
+  font-size: 1rem;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1em;
+  padding-left: 1.5em;
+}
+
+.prose li + li {
+  margin-top: 0.3em;
+}
+
+.prose strong {
+  color: #f1f3f8;
+}
+
+.prose hr {
+  margin: 2em 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.prose a {
+  overflow-wrap: anywhere;
+}
+
+.prose table {
+  width: 100%;
+  margin: 0 0 1.5em;
+  border-collapse: collapse;
+}
+
+.prose th,
+.prose td {
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+
+.prose th {
+  background: var(--surface);
+}
+
+.prose blockquote {
+  margin: 0 0 1em;
+  padding: 0.2em 1em;
+  border-left: 3px solid var(--line);
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

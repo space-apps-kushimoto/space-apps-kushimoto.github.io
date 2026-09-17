@@ -4,39 +4,96 @@
 
 https://space-apps-kushimoto.github.io/
 
-## ブログの書き方
-1. GitHub上でこのリポジトリをフォーク。
+サイトは [Astro](https://astro.build/) で作っています。`master` に push すると、GitHub Actions がサイトを組み立てて GitHub Pages に公開します（[.github/workflows/deploy.yml](.github/workflows/deploy.yml)）。
 
-2. フォークしたリポジトリ上で、`/_posts/`ディレクトリに移動。
-    - 例：`https://github.com/[your-name]/space-apps-kushimoto.github.io/tree/master/_posts`
+過去の年のサイトは、年ごとのブランチ（`2024`、`2025` など）に残しています。
 
-3. [Create New File] をクリック
-    - <img width="500" alt="スクリーンショット 2019-07-30 13 36 34" src="https://user-images.githubusercontent.com/8760841/62172910-f59d1e00-b36e-11e9-96c5-5281461ccf9f.png">
- 
-4. 記事を書く。
+## 毎年の更新
 
-5. プルリクエストを送る。
+開催日・会場・ボタンのリンク・ライブ配信・スポンサー・主催者などは、[src/data/event.ts](src/data/event.ts) にまとめています。基本的にはこのファイルを書き換えるだけで、トップページとフッターに反映されます。
 
-### 投稿形式
-- ファイル名を`YYYY-MM-DD-name-of-post.md`の形式で保存。
-- 最初の行に下の形式でメタデータを追加。
-    - https://github.com/ndrewtl/airspace-jekyll/blame/master/_posts/2016-05-20-welcome-to-jekyll.md#L1-L7
-- マークダウン形式で記述。
+| 変えたいもの | 場所 |
+|---|---|
+| 開催年・日程・会場 | `src/data/event.ts` の `event` |
+| Discord の招待 URL | `src/data/event.ts` の `discord.inviteUrl`（空のあいだ「参加する」ボタンは準備中表示） |
+| 参加する・開催要項・connpass のボタン | `src/data/event.ts` の `actions`（`href` に URL を入れ、`ready: true` にすると押せるようになる） |
+| ライブ配信 | `src/data/event.ts` の `streams`（空のあいだは「決まり次第お知らせします」と表示） |
+| トップの数字（参加国・参加者数など） | `src/data/event.ts` の `stats`（NASA の [Results and Metrics](https://www.spaceappschallenge.org/about/results-and-metrics/) の値） |
+| スポンサー | `src/data/event.ts` の `sponsors`（ロゴ画像は `public/img/sponsor/` に置く） |
+| 主催・共催・協賛・後援・事務局 | `src/data/event.ts` の `organizers` |
+| 開催要項などの PDF・画像 | `public/img/` |
+| 開催概要・行動規範・お問い合わせ | `src/pages/<ページ名>/index.md` |
+| アクセス（会場への行き方） | `src/pages/_access/index.md`（2026年はオンライン開催のため非公開） |
 
-## 開発者向け
+`src/pages/` の中で名前が `_` で始まるフォルダ・ファイルは、ページとして公開されません。アクセスのページを再び公開するときは、`_access` を `access` に戻し、[src/data/event.ts](src/data/event.ts) の `nav` に `{ label: 'アクセス', href: '/access/' }` を戻してください。
+
+## お知らせ（ブログ）の書き方
+
+1. `src/content/posts/` に、`YYYY-MM-DD-名前.md` という名前でファイルを作ります。
+2. ファイルの先頭に、次の形式で情報を書きます。
+
+   ```markdown
+   ---
+   title: 記事のタイトル
+   date: 2026-09-01 00:00:00
+   author: 名前
+   ---
+
+   ここから本文（Markdown）
+   ```
+
+3. 記事の URL は `/年/月/日/名前.html` になります（日付は `date` の値を使います）。
+
+GitHub 上で編集する場合は、リポジトリをフォークして上記のファイルを作り、プルリクエストを送ってください。
+
+## ローカルで確認する
+
+### 準備（初回だけ）
+
+- Node.js 22.12 以上が必要です。
+- 次のコマンドで、必要な部品を入れます。
+
+```bash
+npm install
+```
+
+### 表示する
+
+```bash
+npm run dev
+```
+
+ターミナルに表示される `Local` の URL（通常は `http://localhost:4321/`）をブラウザで開きます。ファイルを保存すると、表示が自動で更新されます。止めるときは `Ctrl + C` を押します。
+
+- ポート `4321` が使用中のときは、`4322` など別の番号になります。毎回 `Local` の行を確認してください。
+- VS Code では、F5 で起動と同時に既定のブラウザで開けます（[.vscode/launch.json](.vscode/launch.json)）。
+- VS Code の中で見る場合は、コマンドパレット（`Ctrl + Shift + P`）→「ブラウザー: 統合ブラウザーを開く」で上の URL を開きます。
+- `.astro` ファイルを編集するときは、VS Code の拡張機能「Astro」（`astro-build.astro-vscode`）を入れると便利です。
+
+### 公開前の確認
+
+```bash
+npm run build
+```
+
+```bash
+npm run preview
+```
+
+`npm run build` で公開用のファイルが `dist/` にでき、`npm run preview` でそれを表示できます。
+
+## フォルダ構成
 
 ```
-$ git clone git@github.com:space-apps-kushimoto/space-apps-kushimoto.github.io.git
-$ cd space-apps-kushimoto.github.io
-$ bundle install --path vendor
+public/            そのまま公開されるファイル（画像・PDF・favicon）
+src/content/posts/ お知らせ記事（Markdown）
+src/data/event.ts  年ごとに変わる開催情報
+src/pages/         各ページ
+src/layouts/       ページの共通レイアウト
+src/components/    ヘッダー・フッター
+src/styles/        共通のスタイル（色などの基本値）
 ```
 
-ローカル環境の起動
+## デザインについて
 
-```
-$ bundle exec jekyll serve --watch --baseurl=""
-```
-
-## 参考
-
-https://github.com/ndrewtl/airspace-jekyll
+目の明暗への順応の負担を減らすため、サイト全体を暗めの紺で統一し、真っ黒・真っ白の面を使わないようにしています。色の基本値は [src/styles/global.css](src/styles/global.css) の先頭にまとめています。
