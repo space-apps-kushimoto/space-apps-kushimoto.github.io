@@ -25,23 +25,65 @@ const tiers = sponsors.filter((g) => g.list.length > 0);
         <span>NASA 主催の</span><span>世界同時ハッカソン</span>
       </p>
       <ul class="hero-meta">
-        <li><span class="label">日程</span>{event.dateLabel}</li>
-        <li><span class="label">会場</span>{event.venue}</li>
+        <li>
+          <span class="label">日程</span>
+          <span class="meta-body">
+            <span>
+              {
+                event.dateLabel.split(' - ').map((d, i) => (
+                  <>
+                    {i > 0 && ' '}
+                    <span class="nowrap">{i > 0 && '- '}{d}</span>
+                  </>
+                ))
+              }
+              <small class="tz nowrap">{event.timezone}</small>
+            </span>
+            <span class="en" lang="en">
+              <span class="nowrap">{event.dateLabelEn}</span> / <span class="nowrap">{event.timezoneEn}</span>
+            </span>
+          </span>
+        </li>
+        <li>
+          <span class="label">会場</span>
+          <span class="meta-body">
+            <span>{event.venue}</span>
+            <span class="en" lang="en">{event.venueEn}</span>
+          </span>
+        </li>
       </ul>
       <div class="hero-actions">
         {
           actions.map((a, i) => (
             <a
-              class:list={['btn', i === 0 ? 'btn--primary' : 'btn--ghost']}
+              class:list={['btn', 'btn--stack', i === 0 ? 'btn--primary' : 'btn--ghost']}
               href={a.ready ? a.href : undefined}
               aria-disabled={a.ready ? undefined : 'true'}
             >
-              {a.ready ? a.label : `${a.label}（準備中）`}
+              <span>{a.ready ? a.label : `${a.label}（準備中）`}</span>
+              {a.labelEn !== a.label || !a.ready ? (
+                <span class="en" lang="en">
+                  {a.labelEn !== a.label ? a.labelEn : ''}
+                  {!a.ready && (a.labelEn !== a.label ? ' – Coming soon' : 'Coming soon')}
+                </span>
+              ) : null}
             </a>
           ))
         }
       </div>
-      {actions[0].note && <p class="hero-note">※ {actions[0].note}</p>}
+      {
+        actions[0].note && (
+          <p class="hero-note">
+            ※ {actions[0].note}
+            {actions[0].noteEn && (
+              <>
+                <br />
+                <span lang="en">{actions[0].noteEn}</span>
+              </>
+            )}
+          </p>
+        )
+      }
     </div>
   </section>
 
@@ -52,7 +94,11 @@ const tiers = sponsors.filter((g) => g.list.length > 0);
       <h2 class="section-title">ライブ配信</h2>
       {
         streams.length === 0 && (
-          <p class="stream-pending">配信の日時と URL は、決まり次第お知らせします。</p>
+          <p class="stream-pending">
+            配信の日時と URL は、決まり次第お知らせします。
+            <br />
+            <span lang="en">The live streaming schedule and URLs will be announced soon.</span>
+          </p>
         )
       }
       <div class="streams">
@@ -302,15 +348,53 @@ const tiers = sponsors.filter((g) => g.list.length > 0);
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 18px 8px 8px;
-    border-radius: 999px;
+    padding: 8px 20px 8px 10px;
+    border-radius: 22px;
     background: rgb(25 33 61 / 65%);
     border: 1px solid rgb(255 255 255 / 20%);
     backdrop-filter: blur(6px);
     font-weight: 500;
   }
 
+  .meta-body {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.45;
+  }
+
+  .nowrap {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .tz {
+    margin-left: 0.5em;
+    color: var(--text-muted);
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+
+  /* 日本語に添える英語 */
+  .hero .en {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .btn--stack {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .btn--primary .en {
+    color: rgb(255 255 255 / 80%);
+  }
+
   .hero-meta .label {
+    flex: none;
+    white-space: nowrap;
     padding: 2px 12px;
     border-radius: 999px;
     background: var(--red);

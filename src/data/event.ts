@@ -13,7 +13,13 @@ export const event = {
   // トップのタイトルに表示する開催年
   year: 2026,
   dateLabel: '2026年11月14日(土) - 11月15日(日)',
+  // 海外からの参加者向けの英語表記（トップページで日本語と併記する）
+  dateLabelEn: 'Sat, Nov 14 – Sun, Nov 15, 2026',
+  // スケジュールの時間帯。日程の横に書き添える
+  timezone: 'JST（UTC+9）',
+  timezoneEn: 'Japan Standard Time (UTC+9)',
   venue: 'オンライン開催（Discord）',
+  venueEn: 'Online (Discord)',
 };
 
 // 会場の Discord サーバー「NASA SpaceApps串本」（サーバーID: 1388925599996706908）
@@ -25,7 +31,9 @@ export const discord = {
 
 export type LinkButton = {
   label: string;
+  labelEn: string;
   note?: string;
+  noteEn?: string;
   href: string;
   // 準備中のときは false にすると、押せない表示になる
   ready: boolean;
@@ -35,17 +43,21 @@ export type LinkButton = {
 export const actions: LinkButton[] = [
   {
     label: '参加する',
+    labelEn: 'Join',
     note: '参加登録は、Discord に参加してから回答していただきます',
+    noteEn: 'To register, please join our Discord server first, then complete the registration form there.',
     href: discord.inviteUrl,
     ready: discord.inviteUrl !== '',
   },
   {
     label: '開催要項',
+    labelEn: 'Event Guidelines',
     href: '',
     ready: false,
   },
   {
     label: 'connpass',
+    labelEn: 'connpass',
     href: '',
     ready: false,
   },
