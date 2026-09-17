@@ -1,0 +1,69 @@
+---
+// 下層ページ共通のレイアウト。
+// Markdown のページ（src/pages/**/*.md）からは front matter の
+//   layout: ../../layouts/PageLayout.astro
+// で使う。その場合 title などは frontmatter から受け取る。
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title?: string;
+  eyebrow?: string;
+  description?: string;
+  // true のとき本文を文章用のスタイル（.prose）で表示する。Markdown のページでは既定で true。
+  prose?: boolean;
+  frontmatter?: { title?: string; eyebrow?: string; description?: string };
+}
+
+const fm = Astro.props.frontmatter ?? {};
+const prose = Astro.props.prose ?? Boolean(Astro.props.frontmatter);
+const title = Astro.props.title ?? fm.title ?? '';
+const eyebrow = Astro.props.eyebrow ?? fm.eyebrow;
+const description = Astro.props.description ?? fm.description;
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="page-header">
+    <div class="container">
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h1 class="page-title">{title}</h1>
+      <slot name="meta" />
+    </div>
+  </header>
+
+  <div class="section page-body">
+    <div class="container">
+      {
+        prose ? (
+          <div class="prose">
+            <slot />
+          </div>
+        ) : (
+          <slot />
+        )
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-block: clamp(48px, 8vw, 88px) clamp(28px, 4vw, 40px);
+    /* トップのヒーローと同じ地球の画像を、ごく控えめに敷く */
+    background:
+      linear-gradient(to bottom, rgb(25 33 61 / 72%), var(--bg)),
+      url('/img/slider-bg.jpg') center 30% / cover no-repeat,
+      var(--bg);
+    background-blend-mode: normal, lighten, normal;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .page-title {
+    margin: 0;
+    font-size: clamp(1.8rem, 4.2vw, 2.6rem);
+    font-weight: 700;
+  }
+
+  .page-body {
+    padding-top: clamp(36px, 5vw, 56px);
+  }
+</style>

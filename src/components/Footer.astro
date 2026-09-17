@@ -1,0 +1,135 @@
+---
+import { nav, organizers, site } from '../data/event';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid">
+      <div class="about">
+        <img src="/img/logo-light.svg" alt="NASA SPACE APPS CHALLENGE KUSHIMOTO" width="220" height="124" />
+        <p>
+          お問い合わせ:<br />
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+      </div>
+
+      <dl class="organizers">
+        {
+          organizers.map((o) => (
+            <div>
+              <dt>{o.role}</dt>
+              <dd>{o.names.join('、')}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <div class="bottom">
+      <ul class="links">
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="copy">&copy; Space Apps Challenge Kushimoto 実行委員会</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line);
+    color: var(--text-muted);
+    padding-block: 64px 32px;
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 48px;
+  }
+
+  .about img {
+    width: 220px;
+    margin-bottom: 20px;
+  }
+
+  .site-footer a {
+    color: var(--text);
+  }
+
+  .organizers {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .organizers div {
+    display: grid;
+    grid-template-columns: 5em minmax(0, 1fr);
+    gap: 12px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .organizers dt {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .organizers dd {
+    margin: 0;
+  }
+
+  .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .links a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .links a:hover {
+    color: var(--text);
+  }
+
+  .copy {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 720px) {
+    .grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+    }
+
+    .organizers div {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2px;
+    }
+  }
+</style>

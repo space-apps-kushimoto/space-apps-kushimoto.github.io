@@ -1,0 +1,17 @@
+{
+  // F5 で開発サーバーを起動し、ブラウザでサイトを開く
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "サイトをローカルで表示 (npm run dev)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "serverReadyAction": {
+        "pattern": "(https?://localhost:[0-9]+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    }
+  ]
+}

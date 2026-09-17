@@ -1,0 +1,209 @@
+---
+import { nav, site } from '../data/event';
+
+const current = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href === '/' ? current === '/' || current === '/index.html' : current.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="/">
+      <img src="/img/KUSHIMOTOlogo2.png" alt="" width="36" height="36" />
+      <span>{site.title}</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">メニュー</span>
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+
+    <nav id="site-nav" class="nav" aria-label="メインメニュー">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    nav?.classList.toggle('is-open', !open);
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgb(20 27 51 / 88%);
+    backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-h);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .brand img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--plate);
+    padding: 2px;
+  }
+
+  .nav ul {
+    display: flex;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .nav a:hover {
+    color: var(--text);
+    background: rgb(255 255 255 / 8%);
+  }
+
+  .nav a[aria-current='page'] {
+    color: var(--text);
+    background: rgb(255 255 255 / 12%);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 820px) {
+    .brand span {
+      font-size: 0.95rem;
+    }
+
+    .menu-toggle {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      margin-right: -8px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--text);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-icon {
+      position: relative;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+      content: '';
+      position: absolute;
+      left: 0;
+    }
+
+    .menu-icon::before {
+      top: -7px;
+    }
+
+    .menu-icon::after {
+      top: 7px;
+    }
+
+    .menu-toggle[aria-expanded='true'] .menu-icon {
+      background: transparent;
+    }
+
+    .menu-toggle[aria-expanded='true'] .menu-icon::before {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded='true'] .menu-icon::after {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav {
+      display: none;
+      position: absolute;
+      top: var(--header-h);
+      left: 0;
+      right: 0;
+      background: var(--bg-deep);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav.is-open {
+      display: block;
+    }
+
+    .nav ul {
+      flex-direction: column;
+      padding: 8px 16px 16px;
+    }
+
+    .nav a {
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,681 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { actions, event, site, sponsors, streams } from '../data/event';
+import { excerpt, formatDate, getPosts, postUrl } from '../lib/posts';
+
+const latest = (await getPosts()).slice(0, 3);
+
+const stats = [
+  { value: '163', unit: 'の国と地域', note: '2024年の開催国・地域' },
+  { value: '93,520', unit: '人以上', note: '2024年の世界の参加者' },
+  { value: '8', unit: '会場', note: '2024年の日本国内の会場' },
+  { value: '7', unit: '年目', note: '串本での通算開催' },
+];
+
+const tiers = [
+  { key: 'platinum', label: 'プラチナスポンサー', list: sponsors.platinum },
+  { key: 'gold', label: 'ゴールドスポンサー', list: sponsors.gold },
+  { key: 'silver', label: 'シルバースポンサー', list: sponsors.silver },
+] as const;
+---
+
+<BaseLayout>
+  <!-- ===== ヒーロー ===== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1 class="hero-title">
+        <span class="t-nasa">NASA</span>
+        <span class="t-main">SPACE APPS</span>
+        <span class="t-challenge">CHALLENGE</span>
+        <span class="t-place">
+          <span class="t-kushimoto">KUSHIMOTO</span>
+          <span class="t-year">{event.year}</span>
+        </span>
+      </h1>
+      <p class="hero-tagline">
+        <span>NASA 主催の</span><span>世界同時ハッカソン</span>
+      </p>
+      <ul class="hero-meta">
+        <li><span class="label">日程</span>{event.dateLabel}</li>
+        <li><span class="label">会場</span>{event.venue}</li>
+      </ul>
+      <div class="hero-actions">
+        {
+          actions.map((a, i) => (
+            <a
+              class:list={['btn', i === 0 ? 'btn--primary' : 'btn--ghost']}
+              href={a.ready ? a.href : undefined}
+              aria-disabled={a.ready ? undefined : 'true'}
+            >
+              {a.ready ? a.label : `${a.label}（準備中）`}
+            </a>
+          ))
+        }
+      </div>
+      {actions[0].note && <p class="hero-note">※ {actions[0].note}</p>}
+    </div>
+  </section>
+
+  <!-- ===== ライブ配信 ===== -->
+  <section class="section section--soft" id="live">
+    <div class="container">
+      <span class="eyebrow">Live Streaming</span>
+      <h2 class="section-title">ライブ配信</h2>
+      <div class="streams">
+        {
+          streams.map((s) => (
+            <a class="stream-card" href={s.url} rel="noopener" target="_blank">
+              <span class="stream-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              <span class="stream-body">
+                <span class="stream-when">{s.when}</span>
+                <span class="stream-title">{s.title}</span>
+                <span class="stream-link">YouTube で見る →</span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Space Apps について ===== -->
+  <section class="section" id="about">
+    <div class="container about">
+      <div class="about-text">
+        <span class="eyebrow">About</span>
+        <h2 class="section-title">Space Apps Challenge について</h2>
+        <p>
+          Space Apps Challenge とは、米国の NASA
+          が毎年主催する世界同時ハッカソンで、NASAが公開しているオープンデータを使用したアプリケーションの開発を競い合います。
+        </p>
+        <p>
+          民間初のロケット発射場が建設された本州最南端の町・串本。2024年にはこの射場からロケットが打ち上げられ、宇宙に到達しました。そんな串本で、通算7年目の
+          Space Apps Challenge が開催されます。
+        </p>
+      </div>
+      <figure class="about-figure">
+        <img src="/img/wrapper-img.jpg" alt="紀伊半島の衛星写真。串本の位置に赤い印" width="720" height="720" loading="lazy" />
+      </figure>
+    </div>
+
+    <div class="container">
+      <ul class="stats">
+        {
+          stats.map((s) => (
+            <li>
+              <span class="stat-value">
+                {s.value}
+                <small>{s.unit}</small>
+              </span>
+              <span class="stat-note">{s.note}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 串本について ===== -->
+  <section class="kushimoto" id="kushimoto">
+    <div class="container">
+      <div class="kushimoto-card">
+        <span class="eyebrow">Kushimoto</span>
+        <h2 class="section-title">串本について</h2>
+        <p>
+          本州最南端の町、和歌山県串本町は、黒潮の恩恵を受けた美しい海と、世界遺産・熊野古道に囲まれたとても魅力的な町です。
+        </p>
+        <p>
+          この串本町には、日本で初めての民間ロケット発射場が建設され、2024年にはここからロケットが打ち上げられました。
+        </p>
+        <a class="more" href="/access/">会場へのアクセス →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== お知らせ ===== -->
+  <section class="section" id="news">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">News</span>
+          <h2 class="section-title">お知らせ</h2>
+        </div>
+        <a class="more" href="/posts/">すべて見る →</a>
+      </div>
+      <ul class="news">
+        {
+          latest.map((post) => (
+            <li>
+              <a href={postUrl(post)} class="news-card">
+                <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+                <span class="news-title">{post.data.title}</span>
+                <span class="news-excerpt">{excerpt(post.body)}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== スポンサー ===== -->
+  <section class="section section--soft" id="sponsors">
+    <div class="container">
+      <span class="eyebrow">Sponsors</span>
+      <h2 class="section-title">スポンサー</h2>
+      {
+        tiers.map((t) => (
+          <div class:list={['tier', `tier--${t.key}`]}>
+            <h3 class="tier-title">{t.label}</h3>
+            <ul class="logos">
+              {t.list.map((s) => (
+                <li>
+                  <a href={s.url} rel="noopener" target="_blank" title={s.name}>
+                    <img src={`/img/sponsor/${s.image}`} alt={s.name} loading="lazy" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ----- ヒーロー ----- */
+  .hero {
+    position: relative;
+    display: grid;
+    align-items: center;
+    min-height: clamp(560px, calc(100svh - var(--header-h)), 860px);
+    padding-block: 72px;
+    color: var(--text);
+    text-align: center;
+    /* 暗くしすぎない（暗順応させない）。
+       画像の黒い宇宙部分は lighten で背景の紺まで持ち上げ、
+       下端は次のセクションの色へなだらかにつなぐ。 */
+    background:
+      linear-gradient(to bottom, rgb(25 33 61 / 15%) 35%, rgb(25 33 61 / 62%) 60%, rgb(25 33 61 / 75%) 85%, var(--bg-soft)),
+      url('/img/slider-bg.jpg') center top / cover no-repeat,
+      var(--bg);
+    background-blend-mode: normal, lighten, normal;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ----- タイトル（旧ロゴを太い文字で組み直したもの） ----- */
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    line-height: 1;
+    text-shadow: 0 4px 24px rgb(0 0 0 / 55%);
+    animation: rise 0.9s ease both;
+  }
+
+  .t-nasa,
+  .t-challenge,
+  .t-place {
+    font-family: var(--font-logo);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+
+  .t-nasa {
+    color: #ff2b36;
+    font-size: clamp(1.6rem, 4.4vw, 2.8rem);
+    letter-spacing: 0.22em;
+    margin-right: -0.22em;
+  }
+
+  .t-main {
+    margin: 0.04em 0 0.08em;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(2.9rem, 17vw, 9.5rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .t-challenge {
+    color: #ff2b36;
+    font-size: clamp(1.9rem, 5.6vw, 3.6rem);
+    margin-right: -0.08em;
+  }
+
+  .t-place {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em 0.45em;
+    margin-top: 0.18em;
+    font-size: clamp(1.6rem, 4.6vw, 3rem);
+  }
+
+  .t-kushimoto {
+    color: #7d9bff;
+  }
+
+  .t-year {
+    padding: 0.1em 0.35em 0.12em;
+    border-radius: 0.18em;
+    background: #e9ecf3;
+    color: var(--bg-deep);
+    text-shadow: none;
+    box-shadow: 0 4px 24px rgb(0 0 0 / 40%);
+  }
+
+  .hero-tagline {
+    margin: 28px 0 20px;
+    font-size: clamp(1.4rem, 3.6vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-shadow: 0 2px 12px rgb(0 0 0 / 70%);
+    animation: rise 0.9s 0.1s ease both;
+  }
+
+  /* 「NASA 主催の」「世界同時ハッカソン」の単位でだけ改行する */
+  .hero-tagline span {
+    display: inline-block;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 14px;
+    margin: 0 0 36px;
+    padding: 0;
+    list-style: none;
+    animation: rise 0.9s 0.2s ease both;
+  }
+
+  .hero-meta li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px 8px 8px;
+    border-radius: 999px;
+    background: rgb(25 33 61 / 65%);
+    border: 1px solid rgb(255 255 255 / 20%);
+    backdrop-filter: blur(6px);
+    font-weight: 500;
+  }
+
+  .hero-meta .label {
+    padding: 2px 12px;
+    border-radius: 999px;
+    background: var(--red);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    animation: rise 0.9s 0.3s ease both;
+  }
+
+  .hero-note {
+    margin: 16px 0 0;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* ----- ライブ配信 ----- */
+  .streams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .stream-card {
+    display: flex;
+    gap: 18px;
+    padding: 24px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+
+  .stream-card:hover {
+    transform: translateY(-3px);
+    background: var(--surface-hover);
+  }
+
+  .stream-icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--red);
+    color: #fff;
+  }
+
+  .stream-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stream-when {
+    color: var(--red-text);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+  }
+
+  .stream-title {
+    font-weight: 700;
+    font-size: 1.08rem;
+  }
+
+  .stream-link {
+    margin-top: 6px;
+    color: var(--blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* ----- About ----- */
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(32px, 6vw, 80px);
+  }
+
+  .about-figure {
+    margin: 0;
+  }
+
+  .about-figure img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px var(--surface), 0 30px 60px rgb(0 0 0 / 30%);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin: clamp(48px, 7vw, 80px) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .stats li {
+    display: flex;
+    flex-direction: column;
+    padding: 22px 20px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--surface), var(--surface-hover));
+    color: var(--text);
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  .stat-value small {
+    margin-left: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .stat-note {
+    margin-top: 6px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+
+  /* ----- 串本 ----- */
+  .kushimoto {
+    padding-block: clamp(80px, 14vw, 160px);
+    background:
+      linear-gradient(to bottom, var(--bg), rgb(25 33 61 / 25%) 18%, rgb(25 33 61 / 25%) 82%, var(--bg)),
+      linear-gradient(90deg, rgb(25 33 61 / 0%) 30%, rgb(25 33 61 / 50%)),
+      url('/img/featue-bg.jpg') center / cover no-repeat;
+  }
+
+  .kushimoto .container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .kushimoto-card {
+    width: min(100%, 480px);
+    padding: clamp(28px, 4vw, 44px);
+    border-radius: var(--radius);
+    background: rgb(25 33 61 / 88%);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
+  }
+
+  .kushimoto-card .eyebrow {
+    color: var(--ocean);
+  }
+
+  .more {
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .more:hover {
+    text-decoration: underline;
+  }
+
+  /* ----- お知らせ ----- */
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .news {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgb(255 255 255 / 3%);
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .news-card:hover {
+    background: var(--surface);
+    transform: translateY(-3px);
+  }
+
+  .news-card time {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .news-title {
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .news-excerpt {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* ----- スポンサー ----- */
+  .tier {
+    margin-top: 40px;
+  }
+
+  .tier-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .tier-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .logos {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .logos a {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: 20px;
+    border-radius: var(--radius);
+    background: var(--plate);
+    box-shadow: var(--shadow);
+    transition: background-color 0.15s ease;
+  }
+
+  .logos a:hover {
+    background: #e2e5ec;
+  }
+
+  .logos img {
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    /* ロゴ画像の白い背景を台紙の色になじませ、白く光る四角を出さない */
+    mix-blend-mode: multiply;
+  }
+
+  .tier--platinum .logos {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  }
+
+  .tier--platinum .logos a {
+    min-height: 180px;
+  }
+
+  .tier--platinum img {
+    height: 120px;
+  }
+
+  .tier--gold .logos {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  }
+
+  .tier--gold .logos a {
+    min-height: 130px;
+  }
+
+  .tier--gold img {
+    height: 72px;
+  }
+
+  .tier--silver .logos {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  }
+
+  .tier--silver .logos a {
+    min-height: 100px;
+  }
+
+  .tier--silver img {
+    height: 48px;
+  }
+
+  /* ----- スマホ ----- */
+  @media (max-width: 860px) {
+    .about {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about-figure {
+      max-width: 360px;
+      margin-inline: auto;
+    }
+
+    .stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .news {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .kushimoto {
+      background:
+        linear-gradient(to bottom, var(--bg), rgb(25 33 61 / 25%) 12%, rgb(25 33 61 / 25%) 88%, var(--bg)),
+        url('/img/featue-bg.jpg') center / cover no-repeat;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-actions {
+      flex-direction: column;
+      align-self: stretch;
+    }
+  }
+</style>
