@@ -26,7 +26,7 @@ export const event = {
 // inviteUrl に招待 URL（https://discord.gg/...）を入れると、トップのボタンが押せるようになる
 export const discord = {
   name: 'NASA SpaceApps串本',
-  inviteUrl: '',
+  inviteUrl: 'https://discord.gg/TFBT533JwD',
 };
 
 export type LinkButton = {
