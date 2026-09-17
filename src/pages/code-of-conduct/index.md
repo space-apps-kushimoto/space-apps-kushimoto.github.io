@@ -43,10 +43,28 @@ Space Apps Challenge Kushimoto チームは、参加者が会場の警備員や�
 
 イベント参加者すべて (スポンサー、ボランティア、スピーカー、一般来場者、その他のゲスト) が、全イベント会場およびイベントに関連する行事などにおいてこの行動規範に従うことを期待します。
 
+## オンライン開催時の補足 / Note for online events
+
+オンラインで開催する場合も、この行動規範はそのまま適用されます。会場に関する記述は、Discord 上での対応に読み替えてください。
+
+Discord では、スタッフに「2026スタッフ」ロール、参加者に「2026参加者」ロールが付いています。受け入れがたい行為にさらされたり、気になることがあったりした場合は、「2026スタッフ」ロールの付いたスタッフにお知らせください。
+
+> This Code of Conduct also applies to online events. Please read anything about the venue as applying to Discord.
+>
+> On Discord, staff have the "2026スタッフ" role and participants have the "2026参加者" role. If you experience or see unacceptable behavior, or have any concerns, please contact a member with the "2026スタッフ" role.
+
 ## 7. 連絡先情報
 
 Space Apps Challenge Kushimoto 実行委員会: spaceappskushimoto@gmail.com
 
 ## 8. ライセンスと帰属
 
-この行動規範は Open Source Bridge のすばらしい成果をお借りして、当イベントの情報に入れ替えたものです。原文は http://opensourcebridge.org/about/code-of-conduct/ にて Creative Commons 表示 – 継承ライセンスのもとにリリースされています。
+この行動規範は、Open Source Bridge の「Code of Conduct」を日本語に訳し、当イベントの情報に合わせて変更したものです。原文は、Stumptown Syndicate の「Citizen Code of Conduct」をもとに作られ、クリエイティブ・コモンズ 表示 - 継承 3.0（CC BY-SA 3.0）ライセンスのもとで公開されています。
+
+- 原文: [Open Source Bridge「Code of Conduct」](https://web.archive.org/web/20191206083557/http://opensourcebridge.org/about/code-of-conduct/)
+- 原文のもとになった文書: [Stumptown Syndicate「Citizen Code of Conduct」](https://web.archive.org/web/20191219093629/http://citizencodeofconduct.org/)
+- ライセンス: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.ja)
+
+どちらのサイトも現在は閉鎖されているため、Internet Archive に保存されたページにリンクしています。
+
+この行動規範（Space Apps Challenge Kushimoto 版）も、同じ CC BY-SA 3.0 ライセンスのもとで公開します。
