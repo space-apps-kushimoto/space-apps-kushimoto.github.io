@@ -1,22 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { actions, event, site, sponsors, streams } from '../data/event';
+import { actions, event, site, sponsors, stats, streams } from '../data/event';
 import { excerpt, formatDate, getPosts, postUrl } from '../lib/posts';
 
 const latest = (await getPosts()).slice(0, 3);
 
-const stats = [
-  { value: '163', unit: 'の国と地域', note: '2024年の開催国・地域' },
-  { value: '93,520', unit: '人以上', note: '2024年の世界の参加者' },
-  { value: '8', unit: '会場', note: '2024年の日本国内の会場' },
-  { value: '7', unit: '年目', note: '串本での通算開催' },
-];
-
-const tiers = [
-  { key: 'platinum', label: 'プラチナスポンサー', list: sponsors.platinum },
-  { key: 'gold', label: 'ゴールドスポンサー', list: sponsors.gold },
-  { key: 'silver', label: 'シルバースポンサー', list: sponsors.silver },
-] as const;
+const tiers = sponsors.filter((g) => g.list.length > 0);
 ---
 
 <BaseLayout>
@@ -61,6 +50,11 @@ const tiers = [
     <div class="container">
       <span class="eyebrow">Live Streaming</span>
       <h2 class="section-title">ライブ配信</h2>
+      {
+        streams.length === 0 && (
+          <p class="stream-pending">配信の日時と URL は、決まり次第お知らせします。</p>
+        )
+      }
       <div class="streams">
         {
           streams.map((s) => (
@@ -93,7 +87,7 @@ const tiers = [
           が毎年主催する世界同時ハッカソンで、NASAが公開しているオープンデータを使用したアプリケーションの開発を競い合います。
         </p>
         <p>
-          民間初のロケット発射場が建設された本州最南端の町・串本。2024年にはこの射場からロケットが打ち上げられ、宇宙に到達しました。そんな串本で、通算7年目の
+          民間初のロケット発射場が建設された本州最南端の町・串本。2024年にはこの射場からロケットが打ち上げられ、宇宙に到達しました。そんな串本で、通算8年目の
           Space Apps Challenge が開催されます。
         </p>
       </div>
@@ -131,7 +125,6 @@ const tiers = [
         <p>
           この串本町には、日本で初めての民間ロケット発射場が建設され、2024年にはここからロケットが打ち上げられました。
         </p>
-        <a class="more" href="/access/">会場へのアクセス →</a>
       </div>
     </div>
   </section>
@@ -165,12 +158,12 @@ const tiers = [
   <!-- ===== スポンサー ===== -->
   <section class="section section--soft" id="sponsors">
     <div class="container">
-      <span class="eyebrow">Sponsors</span>
-      <h2 class="section-title">スポンサー</h2>
+      <span class="eyebrow">Supporting Companies</span>
+      <h2 class="section-title">運営協力会社</h2>
       {
         tiers.map((t) => (
-          <div class:list={['tier', `tier--${t.key}`]}>
-            <h3 class="tier-title">{t.label}</h3>
+          <div class:list={['tier', `tier--${t.size}`]}>
+            {t.label && <h3 class="tier-title">{t.label}</h3>}
             <ul class="logos">
               {t.list.map((s) => (
                 <li>
@@ -356,6 +349,18 @@ const tiers = [
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: 20px;
     margin-top: 28px;
+  }
+
+  .stream-pending {
+    margin: 20px 0 0;
+    padding: 20px 24px;
+    border: 1px dashed var(--line);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+  }
+
+  .streams:empty {
+    display: none;
   }
 
   .stream-card {
@@ -610,39 +615,39 @@ const tiers = [
     mix-blend-mode: multiply;
   }
 
-  .tier--platinum .logos {
+  .tier--large .logos {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   }
 
-  .tier--platinum .logos a {
+  .tier--large .logos a {
     min-height: 180px;
   }
 
-  .tier--platinum img {
+  .tier--large img {
     height: 120px;
   }
 
-  .tier--gold .logos {
+  .tier--medium .logos {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   }
 
-  .tier--gold .logos a {
+  .tier--medium .logos a {
     min-height: 130px;
   }
 
-  .tier--gold img {
+  .tier--medium img {
     height: 72px;
   }
 
-  .tier--silver .logos {
+  .tier--small .logos {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   }
 
-  .tier--silver .logos a {
+  .tier--small .logos a {
     min-height: 100px;
   }
 
-  .tier--silver img {
+  .tier--small img {
     height: 48px;
   }
 

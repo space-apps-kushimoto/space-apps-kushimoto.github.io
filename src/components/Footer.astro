@@ -15,7 +15,7 @@ import { nav, organizers, site } from '../data/event';
 
       <dl class="organizers">
         {
-          organizers.map((o) => (
+          organizers.filter((o) => !o.hidden).map((o) => (
             <div>
               <dt>{o.role}</dt>
               <dd>{o.names.join('、')}</dd>

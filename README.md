@@ -15,12 +15,17 @@ https://space-apps-kushimoto.github.io/
 | 変えたいもの | 場所 |
 |---|---|
 | 開催年・日程・会場 | `src/data/event.ts` の `event` |
-| 参加登録・開催要項・connpass のボタン | `src/data/event.ts` の `actions`（準備中のときは `ready: false`） |
-| ライブ配信 | `src/data/event.ts` の `streams` |
+| Discord の招待 URL | `src/data/event.ts` の `discord.inviteUrl`（空のあいだ「参加する」ボタンは準備中表示） |
+| 参加する・開催要項・connpass のボタン | `src/data/event.ts` の `actions`（`href` に URL を入れ、`ready: true` にすると押せるようになる） |
+| ライブ配信 | `src/data/event.ts` の `streams`（空のあいだは「決まり次第お知らせします」と表示） |
+| トップの数字（参加国・参加者数など） | `src/data/event.ts` の `stats`（NASA の [Results and Metrics](https://www.spaceappschallenge.org/about/results-and-metrics/) の値） |
 | スポンサー | `src/data/event.ts` の `sponsors`（ロゴ画像は `public/img/sponsor/` に置く） |
 | 主催・共催・協賛・後援・事務局 | `src/data/event.ts` の `organizers` |
 | 開催要項などの PDF・画像 | `public/img/` |
-| 開催概要・アクセス・行動規範・お問い合わせ | `src/pages/<ページ名>/index.md` |
+| 開催概要・行動規範・お問い合わせ | `src/pages/<ページ名>/index.md` |
+| アクセス（会場への行き方） | `src/pages/_access/index.md`（2026年はオンライン開催のため非公開） |
+
+`src/pages/` の中で名前が `_` で始まるフォルダ・ファイルは、ページとして公開されません。アクセスのページを再び公開するときは、`_access` を `access` に戻し、[src/data/event.ts](src/data/event.ts) の `nav` に `{ label: 'アクセス', href: '/access/' }` を戻してください。
 
 ## お知らせ（ブログ）の書き方
 
