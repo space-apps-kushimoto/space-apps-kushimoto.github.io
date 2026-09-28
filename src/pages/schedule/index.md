@@ -24,6 +24,28 @@ Space Apps Challenge は 2012 年に始まり、以来、参加者は年々増�
 
 > Space Apps Challenge started in 2012. In 2025, 114,094 people from 167 countries and territories registered, at 551 local events. Kushimoto, home to Japan's first private rocket launch site, has hosted a local event since 2019. In 2026, Kushimoto holds its event online.
 
+## スケジュール / Schedule
+
+時刻はすべて日本時間（JST / UTC+9）です。
+
+- **11月14日(土) 09:00 開発スタート**  
+  ライブの開会式は行いません。開催の案内を Discord とメールで文章にてお知らせし、開発を始めます。
+- **11月15日(日) 20:00 提出締切**  
+  NASA 公式サイトでのプロジェクト・チーム登録と、審査用の発表資料（3分以内の動画、資料、サイトなど）の提出を済ませてください。
+- **11月18日(水) 15:00 受賞発表**  
+  串本会場の受賞チームと審査員の講評を、NASA 公式サイトの串本会場のページ、Discord、SNS で文章にて発表します。
+
+最新のスケジュールは、NASA 公式サイトの串本会場のページでご確認ください。  
+[NASA Space Apps Challenge 2026 - Kushimoto（スケジュール）](https://www.spaceappschallenge.org/2026/local-events/kushimoto/?tab=schedule)
+
+> All times are in Japan Standard Time (JST / UTC+9).
+>
+> - **Sat, Nov 14, 09:00 — Hacking starts.** There is no live opening ceremony. We will post the opening announcement on Discord and by email.
+> - **Sun, Nov 15, 20:00 — Submission deadline.** Register your project and team on the official NASA website, and submit your presentation materials (a video of up to 3 minutes, documents, websites, etc.).
+> - **Wed, Nov 18, 15:00 — Winners announcement.** We will announce the Kushimoto winners and the judges' comments on the NASA Kushimoto page, Discord, and social media.
+>
+> For the latest schedule, see the Kushimoto page on the official NASA website.
+
 ## 最新の情報 / Latest news
 
 2026年の connpass のページは、ただいま準備中です。公開され次第、このサイトでお知らせします。
