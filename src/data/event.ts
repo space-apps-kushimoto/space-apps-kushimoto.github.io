@@ -63,6 +63,14 @@ export const actions: LinkButton[] = [
   },
 ];
 
+// トップの「スケジュール」欄。時刻は日本時間。
+// NASA 公式サイトの串本会場のページ（?tab=schedule）で公開されたもの
+export const schedule: { when: string; whenEn: string; title: string; titleEn: string }[] = [
+  { when: '11月14日(土) 09:00', whenEn: 'Sat, Nov 14, 09:00', title: '開発スタート', titleEn: 'Hacking starts' },
+  { when: '11月15日(日) 20:00', whenEn: 'Sun, Nov 15, 20:00', title: '提出締切', titleEn: 'Submission deadline' },
+  { when: '11月18日(水) 15:00', whenEn: 'Wed, Nov 18, 15:00', title: '受賞発表', titleEn: 'Winners announcement' },
+];
+
 // ライブ配信。空のあいだは「決まり次第お知らせします」と表示する。
 // 例: { title: 'オープニング・チームアピール・ゲスト講演', when: '2026/11/14 10:30〜', url: 'https://www.youtube.com/watch?v=...' }
 export const streams: { title: string; when: string; url: string }[] = [];
