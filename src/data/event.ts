@@ -52,8 +52,8 @@ export const actions: LinkButton[] = [
   {
     label: '開催要項',
     labelEn: 'Event Guidelines',
-    href: '',
-    ready: false,
+    href: '/guidelines/',
+    ready: true,
   },
   {
     label: 'connpass',
