@@ -6,7 +6,7 @@ author: Tarosay
 
 ## 日本語
 
-今年の審査員のお一人として、Sivanesh Manoharan（シヴァネシュ・マノハラン）氏にご協力いただけることになりました。ご本人の了承を得て、自己紹介文をご紹介します。
+今年の審査員として、Sivanesh Manoharan（シヴァネシュ・マノハラン）氏にご協力いただけることになりました。ご本人の了承を得て、自己紹介文をご紹介します。
 
 ### Sivanesh Manoharan 氏
 
@@ -20,7 +20,7 @@ author: Tarosay
 
 ## English
 
-We are pleased to welcome Sivanesh Manoharan as one of our judges this year. Below is his self-introduction, shared here with his permission.
+We are pleased to welcome Sivanesh Manoharan as our judge this year. Below is his self-introduction, shared here with his permission.
 
 ### Sivanesh Manoharan
 
