@@ -119,12 +119,12 @@ NASA Space Apps Challenge は、NASA 主催による世界各地で同時に行�
 ## 12. 審査と表彰 / Judging and awards
 
 - **審査:** 提出された発表資料をもとに審査します。
-- **審査員:** 決まり次第お知らせします。
+- **審査員:** Sivanesh Manoharan 氏（[紹介記事](/2026/09/30/judge-sivanesh-manoharan.html)）
 - **表彰:** 賞の内容は、決まり次第お知らせします。
 - **受賞発表:** 11月18日(水) 15:00 に、NASA 公式サイトの串本会場のページ、Discord、SNS で発表します。
 
 > - **Judging:** Projects are judged on the submitted presentation materials.
-> - **Judges:** To be announced.
+> - **Judges:** Sivanesh Manoharan ([introduction](/2026/09/30/judge-sivanesh-manoharan.html))
 > - **Awards:** To be announced.
 > - **Winners announcement:** Wed, Nov 18, 15:00 JST, on the NASA Kushimoto page, Discord, and social media.
 
