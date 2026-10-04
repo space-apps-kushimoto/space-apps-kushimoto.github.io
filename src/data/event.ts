@@ -22,8 +22,11 @@ export const event = {
   venueEn: 'Online (Discord)',
 };
 
+// NASA 公式サイトの串本会場のページ。参加登録はここで行う
+export const nasaLocalUrl = 'https://www.spaceappschallenge.org/2026/local-events/kushimoto/';
+
 // 会場の Discord サーバー「NASA SpaceApps串本」（サーバーID: 1388925599996706908）
-// inviteUrl に招待 URL（https://discord.gg/...）を入れると、トップのボタンが押せるようになる
+// inviteUrl に招待 URL（https://discord.gg/...）を入れると、トップの Discord ボタンが押せるようになる
 export const discord = {
   name: 'NASA SpaceApps串本',
   inviteUrl: 'https://discord.gg/TFBT533JwD',
@@ -32,6 +35,9 @@ export const discord = {
 export type LinkButton = {
   label: string;
   labelEn: string;
+  // ボタンの中に小さく添える説明
+  sub?: string;
+  subEn?: string;
   note?: string;
   noteEn?: string;
   href: string;
@@ -39,13 +45,21 @@ export type LinkButton = {
   ready: boolean;
 };
 
-// 1つ目のボタンが目立つ色（赤）になる。note は1つ目のボタンの下に注記として表示される。
+// 1つ目のボタンが目立つ色（赤）になる。note はボタンの並びの下に、ボタンの順で注記として表示される。
 export const actions: LinkButton[] = [
   {
     label: '参加する',
     labelEn: 'Join',
-    note: '参加登録は、Discord に参加してから回答していただきます',
-    noteEn: 'To register, please join our Discord server first, then complete the registration form there.',
+    note: '参加登録は、NASA 公式サイトの串本会場のページで行ってください。運営からの連絡はすべて Discord で行いますので、Discord にもご参加ください',
+    noteEn:
+      'Please register on the Kushimoto page of the official NASA website. All announcements are made on Discord, so please join our Discord server as well.',
+    href: nasaLocalUrl,
+    ready: true,
+  },
+  {
+    label: 'Discord',
+    labelEn: 'Discord',
+    subEn: 'Runs on Discord',
     href: discord.inviteUrl,
     ready: discord.inviteUrl !== '',
   },

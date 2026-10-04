@@ -67,22 +67,26 @@ const tiers = sponsors.filter((g) => g.list.length > 0);
                   {!a.ready && (a.labelEn !== a.label ? ' – Coming soon' : 'Coming soon')}
                 </span>
               ) : null}
+              {a.sub && <span class="en">{a.sub}</span>}
+              {a.subEn && <span class="en" lang="en">{a.subEn}</span>}
             </a>
           ))
         }
       </div>
       {
-        actions[0].note && (
-          <p class="hero-note">
-            ※ {actions[0].note}
-            {actions[0].noteEn && (
-              <>
-                <br />
-                <span lang="en">{actions[0].noteEn}</span>
-              </>
-            )}
-          </p>
-        )
+        actions
+          .filter((a) => a.note)
+          .map((a) => (
+            <p class="hero-note">
+              ※ {a.note}
+              {a.noteEn && (
+                <>
+                  <br />
+                  <span lang="en">{a.noteEn}</span>
+                </>
+              )}
+            </p>
+          ))
       }
     </div>
   </section>
@@ -445,6 +449,10 @@ const tiers = sponsors.filter((g) => g.list.length > 0);
     margin: 16px 0 0;
     font-size: 0.82rem;
     color: var(--text-muted);
+  }
+
+  .hero-note + .hero-note {
+    margin-top: 6px;
   }
 
   @keyframes rise {

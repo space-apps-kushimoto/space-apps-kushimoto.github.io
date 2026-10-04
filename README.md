@@ -15,8 +15,9 @@ https://space-apps-kushimoto.github.io/
 | 変えたいもの | 場所 |
 |---|---|
 | 開催年・日程・会場 | `src/data/event.ts` の `event` |
-| Discord の招待 URL | `src/data/event.ts` の `discord.inviteUrl`（空のあいだ「参加する」ボタンは準備中表示） |
-| 参加する・開催要項・connpass のボタン | `src/data/event.ts` の `actions`（`href` に URL を入れ、`ready: true` にすると押せるようになる） |
+| NASA 公式サイトの串本会場のページ | `src/data/event.ts` の `nasaLocalUrl`（「参加する」ボタンのリンク先。参加登録はここで行う） |
+| Discord の招待 URL | `src/data/event.ts` の `discord.inviteUrl`（空のあいだ「Discord」ボタンは準備中表示） |
+| 参加する・Discord・開催要項・connpass のボタン | `src/data/event.ts` の `actions`（`href` に URL を入れ、`ready: true` にすると押せるようになる） |
 | ライブ配信 | `src/data/event.ts` の `streams`（空のあいだは「決まり次第お知らせします」と表示） |
 | トップの数字（参加国・参加者数など） | `src/data/event.ts` の `stats`（NASA の [Results and Metrics](https://www.spaceappschallenge.org/about/results-and-metrics/) の値） |
 | スポンサー | `src/data/event.ts` の `sponsors`（ロゴ画像は `public/img/sponsor/` に置く） |

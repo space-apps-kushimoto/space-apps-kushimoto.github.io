@@ -54,14 +54,14 @@ NASA Space Apps Challenge は、NASA 主催による世界各地で同時に行�
 
 ## 6. 参加方法 / How to participate
 
-1. Discord「NASA SpaceApps串本」に参加してください。招待リンク: [https://discord.gg/TFBT533JwD](https://discord.gg/TFBT533JwD)
-2. Discord の中で、参加登録の回答をしてください。
-3. NASA 公式サイトの串本会場のページから参加登録をし、提出締切までにプロジェクトとチームを登録してください。  
+1. NASA 公式サイトの串本会場のページで、参加登録をしてください。この登録で、串本会場への参加資格を得られます。  
    [NASA Space Apps Challenge 2026 - Kushimoto](https://www.spaceappschallenge.org/2026/local-events/kushimoto/)
+2. Discord「NASA SpaceApps串本」に参加してください。運営からの連絡は、すべて Discord で行います。招待リンク: [https://discord.gg/TFBT533JwD](https://discord.gg/TFBT533JwD)
+3. 提出締切までに、NASA 公式サイトでプロジェクトとチームを登録してください。
 
-> 1. Join our Discord server "NASA SpaceApps串本": [https://discord.gg/TFBT533JwD](https://discord.gg/TFBT533JwD)
-> 2. Complete the participant registration form on Discord.
-> 3. Sign up on the Kushimoto page of the official NASA website, and register your project and team there before the submission deadline.
+> 1. Register on the Kushimoto page of the official NASA website. This registration makes you eligible to participate in the Kushimoto event: [NASA Space Apps Challenge 2026 - Kushimoto](https://www.spaceappschallenge.org/2026/local-events/kushimoto/)
+> 2. Join our Discord server "NASA SpaceApps串本". All announcements are made on Discord: [https://discord.gg/TFBT533JwD](https://discord.gg/TFBT533JwD)
+> 3. Register your project and team on the official NASA website before the submission deadline.
 
 ## 7. 参加費 / Fee
 
