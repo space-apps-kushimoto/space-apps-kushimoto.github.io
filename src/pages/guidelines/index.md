@@ -83,7 +83,7 @@ NASA Space Apps Challenge は、NASA 主催による世界各地で同時に行�
 
 - **11月14日(土) 09:00 開発スタート**  
   開催の案内を Discord とメールでお知らせし、開発を始めます。
-- **11月15日(日) 20:00 提出締切**  
+- **11月15日(日) 23:59 提出締切**  
   NASA 公式サイトでのプロジェクト・チーム登録と、審査用の発表資料の提出を済ませてください。
 - **11月18日(水) 15:00 受賞発表**  
   串本会場の受賞チームと審査員の講評を、NASA 公式サイトの串本会場のページ、Discord、SNS で文章にて発表します。
@@ -91,7 +91,7 @@ NASA Space Apps Challenge は、NASA 主催による世界各地で同時に行�
 最新のスケジュールは、[NASA 公式サイトの串本会場のページ](https://www.spaceappschallenge.org/2026/local-events/kushimoto/?tab=schedule)でご確認ください。
 
 > - **Sat, Nov 14, 09:00 — Hacking starts.** We will post the opening announcement on Discord and by email.
-> - **Sun, Nov 15, 20:00 — Submission deadline.** Register your project and team on the official NASA website, and submit your presentation materials.
+> - **Sun, Nov 15, 23:59 — Submission deadline.** Register your project and team on the official NASA website, and submit your presentation materials.
 > - **Wed, Nov 18, 15:00 — Winners announcement.** We will announce the Kushimoto winners and the judges' comments on the NASA Kushimoto page, Discord, and social media.
 
 ## 10. 案内と質問 / Announcements and questions
@@ -110,11 +110,11 @@ NASA Space Apps Challenge は、NASA 主催による世界各地で同時に行�
 
 プロジェクトの形式は自由です。アプリケーション、ソフトウェア、ハードウェア、データの可視化、ビジネスプランなど、あらゆる形式で取り組めます。
 
-提出締切（11月15日(日) 20:00）までに、NASA 公式サイトでプロジェクトとチームを登録し、審査用の発表資料（3分以内のプレゼン動画、資料、サイトなど）を提出してください。
+提出締切（11月15日(日) 23:59）までに、NASA 公式サイトでプロジェクトとチームを登録し、審査用の発表資料（3分以内のプレゼン動画、資料、サイトなど）を提出してください。
 
 > Your project can take any form: an application, software, hardware, a data visualization, a business plan, and more.
 >
-> By the submission deadline (Sun, Nov 15, 20:00 JST), register your project and team on the official NASA website and submit your presentation materials (a presentation video of up to 3 minutes, documents, websites, etc.).
+> By the submission deadline (Sun, Nov 15, 23:59 JST), register your project and team on the official NASA website and submit your presentation materials (a presentation video of up to 3 minutes, documents, websites, etc.).
 
 ## 12. 審査と表彰 / Judging and awards
 
