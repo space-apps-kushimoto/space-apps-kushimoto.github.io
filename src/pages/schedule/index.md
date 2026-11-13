@@ -30,7 +30,7 @@ Space Apps Challenge は 2012 年に始まり、以来、参加者は年々増�
 
 - **11月14日(土) 09:00 開発スタート**  
   ライブの開会式は行いません。開催の案内を Discord とメールで文章にてお知らせし、開発を始めます。
-- **11月15日(日) 20:00 提出締切**  
+- **11月15日(日) 23:59 提出締切**  
   NASA 公式サイトでのプロジェクト・チーム登録と、審査用の発表資料（3分以内の動画、資料、サイトなど）の提出を済ませてください。
 - **11月18日(水) 15:00 受賞発表**  
   串本会場の受賞チームと審査員の講評を、NASA 公式サイトの串本会場のページ、Discord、SNS で文章にて発表します。
@@ -41,7 +41,7 @@ Space Apps Challenge は 2012 年に始まり、以来、参加者は年々増�
 > All times are in Japan Standard Time (JST / UTC+9).
 >
 > - **Sat, Nov 14, 09:00 — Hacking starts.** There is no live opening ceremony. We will post the opening announcement on Discord and by email.
-> - **Sun, Nov 15, 20:00 — Submission deadline.** Register your project and team on the official NASA website, and submit your presentation materials (a video of up to 3 minutes, documents, websites, etc.).
+> - **Sun, Nov 15, 23:59 — Submission deadline.** Register your project and team on the official NASA website, and submit your presentation materials (a video of up to 3 minutes, documents, websites, etc.).
 > - **Wed, Nov 18, 15:00 — Winners announcement.** We will announce the Kushimoto winners and the judges' comments on the NASA Kushimoto page, Discord, and social media.
 >
 > For the latest schedule, see the Kushimoto page on the official NASA website.

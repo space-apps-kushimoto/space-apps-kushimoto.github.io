@@ -81,7 +81,7 @@ export const actions: LinkButton[] = [
 // NASA 公式サイトの串本会場のページ（?tab=schedule）で公開されたもの
 export const schedule: { when: string; whenEn: string; title: string; titleEn: string }[] = [
   { when: '11月14日(土) 09:00', whenEn: 'Sat, Nov 14, 09:00', title: '開発スタート', titleEn: 'Hacking starts' },
-  { when: '11月15日(日) 20:00', whenEn: 'Sun, Nov 15, 20:00', title: '提出締切', titleEn: 'Submission deadline' },
+  { when: '11月15日(日) 23:59', whenEn: 'Sun, Nov 15, 23:59', title: '提出締切', titleEn: 'Submission deadline' },
   { when: '11月18日(水) 15:00', whenEn: 'Wed, Nov 18, 15:00', title: '受賞発表', titleEn: 'Winners announcement' },
 ];
 
