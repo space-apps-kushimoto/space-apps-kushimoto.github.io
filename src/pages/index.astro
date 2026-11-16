@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { actions, event, schedule, site, sponsors, stats, streams } from '../data/event';
+import { actions, ended, event, schedule, site, sponsors, stats, streams } from '../data/event';
 import { excerpt, formatDate, getPosts, postUrl } from '../lib/posts';
 
 const latest = (await getPosts()).slice(0, 3);
@@ -52,19 +52,36 @@ const tiers = sponsors.filter((g) => g.list.length > 0);
           </span>
         </li>
       </ul>
+      {
+        ended && (
+          <div class="hero-ended">
+            <p class="hero-ended-message">
+              {ended.message}
+              <br />
+              <span lang="en">{ended.messageEn}</span>
+            </p>
+            <a class="hero-ended-link" href={ended.link.href}>
+              <span>{ended.link.label} →</span>
+              <span class="en" lang="en">{ended.link.labelEn} →</span>
+            </a>
+          </div>
+        )
+      }
       <div class="hero-actions">
         {
           actions.map((a, i) => (
             <a
               class:list={['btn', 'btn--stack', i === 0 ? 'btn--primary' : 'btn--ghost']}
-              href={a.ready ? a.href : undefined}
-              aria-disabled={a.ready ? undefined : 'true'}
+              href={a.ready && !a.closed ? a.href : undefined}
+              aria-disabled={a.ready && !a.closed ? undefined : 'true'}
             >
-              <span>{a.ready ? a.label : `${a.label}（準備中）`}</span>
-              {a.labelEn !== a.label || !a.ready ? (
+              <span>{a.closed ? `${a.label}（受付終了）` : a.ready ? a.label : `${a.label}（準備中）`}</span>
+              {a.labelEn !== a.label || !a.ready || a.closed ? (
                 <span class="en" lang="en">
                   {a.labelEn !== a.label ? a.labelEn : ''}
-                  {!a.ready && (a.labelEn !== a.label ? ' – Coming soon' : 'Coming soon')}
+                  {a.closed
+                    ? a.labelEn !== a.label ? ' – Closed' : 'Closed'
+                    : !a.ready && (a.labelEn !== a.label ? ' – Coming soon' : 'Coming soon')}
                 </span>
               ) : null}
               {a.sub && <span class="en">{a.sub}</span>}
@@ -75,7 +92,7 @@ const tiers = sponsors.filter((g) => g.list.length > 0);
       </div>
       {
         actions
-          .filter((a) => a.note)
+          .filter((a) => a.note && !a.closed)
           .map((a) => (
             <p class="hero-note">
               ※ {a.note}
@@ -435,6 +452,52 @@ const tiers = sponsors.filter((g) => g.list.length > 0);
     background: var(--red);
     font-size: 0.8rem;
     font-weight: 700;
+  }
+
+  /* ----- 開催終了の案内 ----- */
+  .hero-ended {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: min(100%, 720px);
+    margin: 0 0 32px;
+    padding: 22px clamp(18px, 4vw, 32px);
+    border: 1px solid rgb(255 255 255 / 20%);
+    border-radius: var(--radius);
+    background: rgb(25 33 61 / 75%);
+    backdrop-filter: blur(6px);
+    animation: rise 0.9s 0.25s ease both;
+  }
+
+  .hero-ended-message {
+    margin: 0;
+    font-size: clamp(1rem, 2.4vw, 1.15rem);
+    font-weight: 700;
+    line-height: 1.7;
+  }
+
+  .hero-ended-message [lang='en'] {
+    color: var(--text-muted);
+    font-size: 0.85em;
+    font-weight: 500;
+  }
+
+  .hero-ended-link {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 22px;
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--blue);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .hero-ended-link:hover {
+    background: var(--surface-hover);
+    text-decoration: underline;
   }
 
   .hero-actions {
