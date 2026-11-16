@@ -43,6 +43,23 @@ export type LinkButton = {
   href: string;
   // 準備中のときは false にすると、押せない表示になる
   ready: boolean;
+  // 受付を終えたら true にすると、「受付終了」と表示して押せなくなる（note も表示しない）
+  closed?: boolean;
+};
+
+// 開催が終わったあとにトップのヒーローに出す案内。開催前・開催中は null にする
+export const ended: {
+  message: string;
+  messageEn: string;
+  link: { label: string; labelEn: string; href: string };
+} | null = {
+  message: 'NASA Space Apps Challenge 2026 串本会場は終了しました。ご参加いただいた皆さま、お疲れさまでした。',
+  messageEn: 'NASA Space Apps Challenge 2026 Kushimoto has come to an end. Thank you all for your hard work!',
+  link: {
+    label: 'グローバルノミネートが決まりました。審査結果のお知らせを見る',
+    labelEn: 'Our Global Nominees have been selected. Read the judging results',
+    href: '/2026/11/17/local-judging-results.html',
+  },
 };
 
 // 1つ目のボタンが目立つ色（赤）になる。note はボタンの並びの下に、ボタンの順で注記として表示される。
@@ -55,6 +72,7 @@ export const actions: LinkButton[] = [
       'Please register on the Kushimoto page of the official NASA website. All announcements are made on Discord, so please join our Discord server as well.',
     href: nasaLocalUrl,
     ready: true,
+    closed: true,
   },
   {
     label: 'Discord',
